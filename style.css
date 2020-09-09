@@ -11,8 +11,24 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    flex-direction: column-reverse;
 }
 
 canvas {
     border: 2px solid black;
+}
+
+.toolbox {
+    display: flex;
+    width: 704px;
+    padding: 0.25rem;
+    background-color: rgb(59, 186, 236);
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.toolbox button,
+.toolbox span {
+    margin: 2px;
 }

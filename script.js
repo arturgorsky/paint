@@ -1,13 +1,20 @@
 const canvas = document.getElementById("canvas");
+const increaseBtn = document.getElementById("increase");
+const decreaseBtn = document.getElementById("decrease");
+const sizeDisplay = document.getElementById("size");
 
 /** @type {CanvasRenderingContext2D} */
 const ctx = canvas.getContext("2d");
 
-let size = 5; //paint size
+
+// Some hardcoded values
+let size = 10; //paint size
 let x = 50;
 let y = 50;
 let isMouseDown = false;
 
+
+// drawing(swipe) event listeners
 canvas.addEventListener("mousedown", () => {
   isMouseDown = true;
 });
@@ -24,14 +31,27 @@ canvas.addEventListener("mousemove", (e) => {
   }
 });
 
+//Toolbox event listeners
+increaseBtn.addEventListener("click", () => {
+  if(size < 40) {
+    size += 2;
+    updateSizeDisplay();
+  }
+})
+
+decreaseBtn.addEventListener("click", () => {
+  if(size > 2) {
+    size -= 2;
+    updateSizeDisplay();
+  }
+})
+
 function drawCircle(x, y) {
   ctx.beginPath();
   ctx.arc(x, y, size, 0, 2 * Math.PI);
   ctx.fill();
 }
 
-function draw() {
-  // ctx.clearRect(0, 0, canvas.clientWidth, canvas.height);
-  drawCircle(x, y);
-  requestAnimationFrame(draw);
+function updateSizeDisplay() {
+  sizeDisplay.innerText = size;
 }
