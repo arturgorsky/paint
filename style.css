@@ -28,7 +28,8 @@ canvas {
     justify-content: center;
 }
 
-.toolbox button,
-.toolbox span {
+.toolbox * {
     margin: 2px;
+    width: 1.5rem;
+    text-align: center;
 }
