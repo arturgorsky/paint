@@ -11,6 +11,7 @@ let size = 10; //brush size
 let isMouseDown = false;
 let color = 'black';
 let x = undefined;
+let y = undefined;
 
 ctx.lineWidth = size;
 //values for drawing lines
@@ -19,17 +20,26 @@ ctx.lineWidth = size;
 // drawing(swipe) event listeners
 canvas.addEventListener("mousedown", () => {
   isMouseDown = true;
+
+  x = e.layerX;
+  y = e.layerY;
 });
 
 canvas.addEventListener("mouseup", () => {
   isMouseDown = false;
+
+  x = undefined;
+  y = undefined;
 });
 
 canvas.addEventListener("mousemove", (e) => {
   if (isMouseDown) {
-    const x = e.layerX;
-    const y = e.layerY;
+    const x2 = e.layerX;
+    const y2 = e.layerY;
     drawCircle(x, y);
+    drawLine(x, y, x2, y2);
+    x = x2;
+    y = y2;
   }
 });
 
@@ -49,14 +59,17 @@ decreaseBtn.addEventListener("click", () => {
 });
 
 colorPicker.addEventListener("change", (e) => {
-  let color = e.target.value;
-  ctx.fillStyle = color;
+  color = e.target.value;
+
+
+  ctx.stroke;
 })
 
 
 function drawCircle(x, y) {
   ctx.beginPath();
   ctx.arc(x, y, size, 0, 2 * Math.PI);
+  ctx.fillStyle = color;
   ctx.fill();
 }
 
@@ -66,6 +79,7 @@ function drawLine(x1, y1, x2, y2) {
   ctx.beginPath();
   ctx.moveTo(x1, y1);
   ctx.lineTo(x2, y2);
+  ctx.strokeStyle = color;
   ctx.stroke();
 }
 
