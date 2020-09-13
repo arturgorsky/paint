@@ -29,7 +29,23 @@ canvas {
 }
 
 .toolbox * {
+    display: flex;
     margin: 2px;
-    width: 1.5rem;
+    width: 2rem;
+    height: 2rem;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#clearBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+#clear-icon {
+    display: flex;
 }

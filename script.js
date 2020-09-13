@@ -3,6 +3,7 @@ const increaseBtn = document.getElementById("increase");
 const decreaseBtn = document.getElementById("decrease");
 const sizeDisplay = document.getElementById("size");
 const colorPicker = document.getElementById("color");
+const clearBtn = document.getElementById("clearBtn");
 
 /** @type {CanvasRenderingContext2D} */
 const ctx = canvas.getContext("2d");
@@ -65,6 +66,10 @@ colorPicker.addEventListener("change", (e) => {
   ctx.stroke;
 })
 
+clearBtn.addEventListener("click", () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+})
+
 
 function drawCircle(x, y) {
   ctx.beginPath();
@@ -75,7 +80,7 @@ function drawCircle(x, y) {
 
 
 function drawLine(x1, y1, x2, y2) {
-  ctx.lineWidth = size;
+  ctx.lineWidth = size * 2;
   ctx.beginPath();
   ctx.moveTo(x1, y1);
   ctx.lineTo(x2, y2);
