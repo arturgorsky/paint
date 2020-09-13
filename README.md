@@ -1,2 +1,2 @@
 # paint
-Drawing app written in pure JS
+Drawing app written in vanilla JS
