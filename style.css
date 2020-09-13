@@ -49,3 +49,8 @@ canvas {
 #clear-icon {
     display: flex;
 }
+
+
+.fa-tool-icon {
+    display: flex !important;
+}

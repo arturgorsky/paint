@@ -3,23 +3,25 @@ const increaseBtn = document.getElementById("increase");
 const decreaseBtn = document.getElementById("decrease");
 const sizeDisplay = document.getElementById("size");
 const colorPicker = document.getElementById("color");
-const clearBtn = document.getElementById("clearBtn");
+const clearBtn = document.getElementById("clear-btn");
+const eraserBtn = document.getElementById("eraser-btn");
+const brushBtn = document.getElementById("brush-btn");
 
 /** @type {CanvasRenderingContext2D} */
 const ctx = canvas.getContext("2d");
 
 let size = 10; //brush size
 let isMouseDown = false;
-let color = 'black';
+let color = "black";
+let prevColor = color;
 let x = undefined;
 let y = undefined;
 
 ctx.lineWidth = size;
 //values for drawing lines
 
-
 // drawing(swipe) event listeners
-canvas.addEventListener("mousedown", () => {
+canvas.addEventListener("mousedown", (e) => {
   isMouseDown = true;
 
   x = e.layerX;
@@ -46,14 +48,14 @@ canvas.addEventListener("mousemove", (e) => {
 
 //Toolbox event listeners
 increaseBtn.addEventListener("click", () => {
-  if(size < 40) {
+  if (size < 40) {
     size += 2;
     updateSizeDisplay();
   }
 });
 
 decreaseBtn.addEventListener("click", () => {
-  if(size > 2) {
+  if (size > 2) {
     size -= 2;
     updateSizeDisplay();
   }
@@ -61,15 +63,21 @@ decreaseBtn.addEventListener("click", () => {
 
 colorPicker.addEventListener("change", (e) => {
   color = e.target.value;
-
-
+  prevColor = color;
   ctx.stroke;
-})
+});
 
 clearBtn.addEventListener("click", () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-})
+});
 
+eraserBtn.addEventListener("click", () => {
+  color = "#ffffff";
+});
+
+brushBtn.addEventListener("click", () => {
+  color = prevColor;
+})
 
 function drawCircle(x, y) {
   ctx.beginPath();
@@ -77,7 +85,6 @@ function drawCircle(x, y) {
   ctx.fillStyle = color;
   ctx.fill();
 }
-
 
 function drawLine(x1, y1, x2, y2) {
   ctx.lineWidth = size * 2;
