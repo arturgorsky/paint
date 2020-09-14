@@ -119,3 +119,16 @@ canvas {
     font-weight:600;
     background:#fff;
   }
+
+  .settings-list > div {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: space-around;
+    flex: auto;
+    margin: 1.25rem;
+  }
+
+  .settings-list label {
+    text-align: right;
+    
+  }

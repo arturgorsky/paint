@@ -13,7 +13,7 @@
     <script src="settingsHelpers.js" defer></script>
   </head>
   <body>
-    <canvas id="canvas" width="700px" height="700px"></canvas>
+    <canvas id="canvas"></canvas>
     <div class="toolbox">
       <button id="brush-btn">
         <i class="fas fa-paint-brush fa-tool-icon"></i>
@@ -28,20 +28,28 @@
       <button id="eraser-btn">
         <i class="fas fa-eraser fa-tool-icon"></i>
       </button>
-      <button id="settings-btn" onclick="togglePopup()">
+      <button id="settings-btn">
         <i class="fas fa-cog fa-tool-icon"></i>
       </button>
     </div>
-        <!-- MODALS  START-->
-        <div class="popup" id="settings-popup">
-            <div class="overlay"></div>
-            <div class="content">
-              <div class="close-btn" onclick="togglePopup()">&times;</div>
-              <h1>SETTINGS</h1>
-              <p>
-                aspernatur laborum rem se
-              </p>
-            </div>
+    <!-- MODALS  START-->
+    <div class="popup" id="settings-popup">
+      <div class="overlay"></div>
+      <div class="content">
+        <div class="close-btn" onclick="togglePopup()">&times;</div>
+        <h1>SETTINGS</h1>
+        <hr />
+        <div class="settings-list">
+          <div>
+            <label for="canvas-width">Width</label>
+            <input type="number" id="canvas-width-inpt" />
           </div>
+          <div>
+            <label for="canvas-height">Height</label>
+            <input type="number" id="canvas-height-inpt" />
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

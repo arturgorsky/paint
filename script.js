@@ -6,6 +6,7 @@ const colorPicker = document.getElementById("color");
 const clearBtn = document.getElementById("clear-btn");
 const eraserBtn = document.getElementById("eraser-btn");
 const brushBtn = document.getElementById("brush-btn");
+const settingsBtn = document.getElementById("settings-btn");
 
 /** @type {CanvasRenderingContext2D} */
 const ctx = canvas.getContext("2d");
@@ -16,9 +17,20 @@ let color = "black";
 let prevColor = color;
 let x = undefined;
 let y = undefined;
+let width = 700;
+let height = 700;
 
 ctx.lineWidth = size;
+canvas.width = width;
+canvas.height = height;
 //values for drawing lines
+
+
+settingsBtn.addEventListener("click", () => {
+
+  displayCurrentSettings();
+  togglePopup();
+})
 
 // drawing(swipe) event listeners
 canvas.addEventListener("mousedown", (e) => {
