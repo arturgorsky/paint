@@ -7,6 +7,7 @@ const clearBtn = document.getElementById("clear-btn");
 const eraserBtn = document.getElementById("eraser-btn");
 const brushBtn = document.getElementById("brush-btn");
 const settingsBtn = document.getElementById("settings-btn");
+const downloadBtn = document.getElementById("download-btn");
 
 /** @type {CanvasRenderingContext2D} */
 const ctx = canvas.getContext("2d");
@@ -25,6 +26,13 @@ canvas.width = width;
 canvas.height = height;
 //values for drawing lines
 
+downloadBtn.addEventListener("click", () => {
+  const img = canvas.toDataURL("image/png");
+  let data = '<img src="'+img+'"/>'
+  var tab = window.open('about:blank', '_blank');
+  tab.document.write(data);
+ // tab.document.close();
+})
 
 settingsBtn.addEventListener("click", () => {
 
