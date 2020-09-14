@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a0c44e16c5.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paint.js</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/a0c44e16c5.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js" defer></script>
-</head>
-<body>
+    <script src="settingsHelpers.js" defer></script>
+  </head>
+  <body>
     <canvas id="canvas" width="700px" height="700px"></canvas>
     <div class="toolbox">
-        <button id="brush-btn">
-            <i class="fas fa-paint-brush fa-tool-icon"></i>
-        </button>
-        <button id="increase">+</button>
-        <span id="size">10</span>
-        <button id="decrease">-</button>
-        <input type="color" id="color" />
-        <button id="clear-btn">
-            <i id="clear-icon" class="far fa-trash-alt"></i>
-        </button>
-        <button id="eraser-btn">
-            <i class="fas fa-eraser fa-tool-icon"></i>
-        </button>
+      <button id="brush-btn">
+        <i class="fas fa-paint-brush fa-tool-icon"></i>
+      </button>
+      <button id="increase">+</button>
+      <span id="size">10</span>
+      <button id="decrease">-</button>
+      <input type="color" id="color" />
+      <button id="clear-btn">
+        <i id="clear-icon" class="far fa-trash-alt"></i>
+      </button>
+      <button id="eraser-btn">
+        <i class="fas fa-eraser fa-tool-icon"></i>
+      </button>
+      <button id="settings-btn" onclick="togglePopup()">
+        <i class="fas fa-cog fa-tool-icon"></i>
+      </button>
     </div>
-</body>
+        <!-- MODALS  START-->
+        <div class="popup" id="settings-popup">
+            <div class="overlay"></div>
+            <div class="content">
+              <div class="close-btn" onclick="togglePopup()">&times;</div>
+              <h1>SETTINGS</h1>
+              <p>
+                aspernatur laborum rem se
+              </p>
+            </div>
+          </div>
+  </body>
 </html>
