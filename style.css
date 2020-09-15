@@ -12,20 +12,23 @@ body {
     justify-content: center;
     min-height: 100vh;
     flex-direction: column-reverse;
+    background-color: rgb(59, 31, 43);
 }
 
 canvas {
-    border: 2px solid black;
+    background-color: #fff;
+    border-radius: 0 0 0.5em 0.5em;
 }
 
 .toolbox {
     display: flex;
-    width: 704px;
+    width: 700px;
     padding: 0.25rem;
-    background-color: rgb(59, 186, 236);
+    background-color: #2B59C3;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
+    border-radius: 0.5em 0.5em 0 0;
 }
 
 .toolbox * {
@@ -36,6 +39,18 @@ canvas {
     text-align: center;
     align-items: center;
     justify-content: center;
+}
+
+.selected {
+  color: #13C4A3;
+}
+
+button,
+#color,
+#size {
+  border-radius: 50%;
+  background-color: #fff;
+  color: #3B1F2B;
 }
 
 #clearBtn {

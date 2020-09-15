@@ -31,7 +31,7 @@ downloadBtn.addEventListener("click", () => {
   let data = '<img src="'+img+'"/>'
   var tab = window.open('about:blank', '_blank');
   tab.document.write(data);
- // tab.document.close();
+  tab.document.close();
 })
 
 settingsBtn.addEventListener("click", () => {
