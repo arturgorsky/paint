@@ -9,32 +9,35 @@
       src="https://kit.fontawesome.com/a0c44e16c5.js"
       crossorigin="anonymous"
     ></script>
-    <script src="script.js" defer></script>
-    <script src="settingsHelpers.js" defer></script>
+    <script src="./js/app.js" defer></script>
+    <script src="./js/settingsHelpers.js" defer></script>
+    <script src="./js/uiHelpers.js" defer></script>
   </head>
+
   <body>
     <canvas id="canvas"></canvas>
     <div class="toolbox">
-      <button id="brush-btn">
+      <button id="brush-btn" title="Brush" class="item selected" data-tool="brush">
         <i class="fas fa-paint-brush fa-tool-icon"></i>
       </button>
-      <button id="increase">+</button>
-      <span id="size">10</span>
-      <button id="decrease">-</button>
-      <input type="color" id="color" />
-      <button id="clear-btn">
+      <button id="increase" title="Line width up" class="item">+</button>
+      <span id="size" title="Line width">10</span>
+      <button id="decrease" title="Line width down" class="item">-</button>
+      <input type="color" id="color" title="Select color" class="item"/>
+      <button id="clear-btn" title="Clear" class="item">
         <i id="clear-icon" class="far fa-trash-alt"></i>
       </button>
-      <button id="eraser-btn">
+      <button id="eraser-btn" title="Eraser" class="item" data-tool="eraser">
         <i class="fas fa-eraser fa-tool-icon"></i>
       </button>
-      <button id="settings-btn">
+      <button id="settings-btn" title="Settings" class="item">
         <i class="fas fa-cog fa-tool-icon"></i>
       </button>
-      <button id="download-btn">
+      <button id="download-btn" title="Download" class="item">
         <i class="fas fa-download fa-tool-icon"></i>
       </button>
     </div>
+
     <!-- MODALS  START-->
     <div class="popup" id="settings-popup">
       <div class="overlay"></div>
