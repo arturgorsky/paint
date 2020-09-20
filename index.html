@@ -9,16 +9,22 @@
       src="https://kit.fontawesome.com/a0c44e16c5.js"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/app.js" defer></script>
+    <script type="module" src="./js/app.js" defer></script>
     <script src="./js/settingsHelpers.js" defer></script>
     <script src="./js/uiHelpers.js" defer></script>
   </head>
 
   <body>
-    <canvas id="canvas"></canvas>
+    <canvas id="canvas" width="1200" height="800"></canvas>
     <div class="toolbox">
-      <button id="brush-btn" title="Brush" class="item selected" data-tool="brush">
+      <button id="brush-btn" title="Brush" class="item" data-tool="brush">
         <i class="fas fa-paint-brush fa-tool-icon"></i>
+      </button>
+      <button id="pencil-btn" title="Pencil" class="item" data-tool="pencil">
+        <i class="fas fa-pencil-alt fa-tool-icon"></i>
+      </button>
+      <button id="paint-bucket-btn" title="Paint Bucket" class="item" data-tool="paint-bucket">
+        <i class="fas fa-fill-drip fa-tool-icon"></i>
       </button>
       <button id="increase" title="Line width up" class="item">+</button>
       <span id="size" title="Line width">10</span>
@@ -30,10 +36,10 @@
       <button id="eraser-btn" title="Eraser" class="item" data-tool="eraser">
         <i class="fas fa-eraser fa-tool-icon"></i>
       </button>
-      <button id="line-btn" title="Line" class="item" data-tool="line">
+      <button id="line-btn" title="Line" class="item selected" data-tool="line">
         <i class="fas fa-slash fa-tool-icon"></i>
       </button>
-      <button id="square-btn" title="Square" class="item" data-tool="square">
+      <button id="rectangle-btn" title="Square" class="item" data-tool="rectangle">
         <i class="far fa-square fa-tool-icon"></i>
       </button>
       <button id="circle-btn" title="Circle" class="item" data-tool="circle">
