@@ -56,11 +56,21 @@ i {
 }
 
 button,
-#color,
-#size {
+#color {
   border-radius: 50%;
   background-color: #fff;
   color: #3b1f2b;
+}
+
+#line-width {
+  border-radius: 10%;
+  background-color: #fff;
+  color: #3b1f2b;
+  width: 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
 }
 
 #clearBtn {

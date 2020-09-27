@@ -17,18 +17,13 @@
   <body>
     <canvas id="canvas" width="1200" height="800"></canvas>
     <div class="toolbox">
-      <button id="brush-btn" title="Brush" class="item" data-tool="brush">
-        <i class="fas fa-paint-brush fa-tool-icon"></i>
-      </button>
       <button id="pencil-btn" title="Pencil" class="item" data-tool="pencil">
         <i class="fas fa-pencil-alt fa-tool-icon"></i>
       </button>
       <button id="paint-bucket-btn" title="Paint Bucket" class="item" data-tool="paint-bucket">
         <i class="fas fa-fill-drip fa-tool-icon"></i>
       </button>
-      <button id="increase" title="Line width up" class="item">+</button>
-      <span id="size" title="Line width">10</span>
-      <button id="decrease" title="Line width down" class="item">-</button>
+      <input type="number" id="line-width" title="Line width" />
       <input type="color" id="color" title="Select color" class="item"/>
       <button id="clear-btn" title="Clear" class="item">
         <i id="clear-icon" class="far fa-trash-alt"></i>
