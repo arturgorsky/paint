@@ -12,8 +12,22 @@ export default class MyCanvas {
         this.tool = tool;
     }
 
+    set lineWidth(linewidth) {
+        this._lineWidth = linewidth;
+        this.context.lineWidth = this._lineWidth;
+    }
+
+    set lineColor(linecolor) {
+        console.log(linecolor);
+        this._lineColor = linecolor;
+        this.context.strokeStyle = this._lineColor;
+    }
+
     init() {
+        this._lineWidth = 4;
+        this._lineColor = "#000000";
         this.canvas.onmousedown = (e) => this.onMouseDown(e);
+
     }
 
     onMouseDown(e) {
@@ -58,6 +72,7 @@ export default class MyCanvas {
     onMouseUp(e) {
         this.canvas.onmousemove = null;
         document.onmouseup = null;
+        this.context.beginPath();
     }
 
     startDrawing() {
