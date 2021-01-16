@@ -131,4 +131,8 @@ export default class MyCanvas {
         this.context.lineTo(this.currentPoint.x, this.currentPoint.y);
         this.context.stroke();
     }
+
+    clearWorkspace() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
 }

@@ -6,6 +6,7 @@ myCanvas.activeTool = Tool.TOOL_LINE;
 myCanvas.init();
 const widthPicker = document.getElementById('line-width');
 const colorPicker = document.getElementById('color');
+const clearBtn = document.getElementById('clear-btn');
 widthPicker.value = myCanvas._lineWidth;
 
 
@@ -29,3 +30,8 @@ function toggleClassOnTool(tool, className) {
   document.querySelector("[data-tool].selected").classList.remove(className);
   tool.classList.toggle(className);
 }
+
+clearBtn.addEventListener("click", (e) => {
+  myCanvas.clearWorkspace();
+});
+
