@@ -18,7 +18,6 @@ export default class MyCanvas {
     }
 
     set lineColor(linecolor) {
-        console.log(linecolor);
         this._lineColor = linecolor;
         this.context.strokeStyle = this._lineColor;
     }
@@ -27,7 +26,6 @@ export default class MyCanvas {
         this._lineWidth = 4;
         this._lineColor = "#000000";
         this.canvas.onmousedown = (e) => this.onMouseDown(e);
-
     }
 
     onMouseDown(e) {
@@ -40,7 +38,7 @@ export default class MyCanvas {
         this.canvas.onmousemove = (e) => this.onMouseMove(e);
         document.onmouseup = (e) => this.onMouseUp(e);
         this.startPoint = new Point(e.layerX, e.layerY);
-        if(this.tool === Tool.TOOL_PENCIL) {
+        if (this.tool === Tool.TOOL_PENCIL) {
             this.context.moveTo(this.startPoint.x, this.startPoint.y);
         }
     }
@@ -63,6 +61,9 @@ export default class MyCanvas {
                 break;
             case Tool.TOOL_PENCIL:
                 this.drawPencilLine();
+                break;
+            case Tool.TOOL_ERASER:
+                this.drawErease();
                 break;
             default:
                 break;
@@ -132,6 +133,13 @@ export default class MyCanvas {
         this.context.stroke();
     }
 
+    drawErease() {
+        this.context.globalCompositeOperation = "destination-out";
+        this.context.lineTo(this.currentPoint.x, this.currentPoint.y);
+        this.context.stroke();
+        this.context.globalCompositeOperation = "source-over";
+    }
+
     clearWorkspace() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
@@ -139,8 +147,8 @@ export default class MyCanvas {
     getJpeg() {
         const img = this.canvas.toDataURL("image/png");
         const toolbox = document.getElementsByClassName("toolbox")[0];
-        let imgLink = document.getElementById('img-download-link');
+        let imgLink = document.getElementById("img-download-link");
         imgLink.setAttribute("href", img);
-        imgLink.setAttribute("download", 'your-image');
+        imgLink.setAttribute("download", "your-image");
     }
 }
