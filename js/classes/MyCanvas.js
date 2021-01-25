@@ -135,4 +135,12 @@ export default class MyCanvas {
     clearWorkspace() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
+
+    getJpeg() {
+        const img = this.canvas.toDataURL("image/png");
+        const toolbox = document.getElementsByClassName("toolbox")[0];
+        let imgLink = document.getElementById('img-download-link');
+        imgLink.setAttribute("href", img);
+        imgLink.setAttribute("download", 'your-image');
+    }
 }

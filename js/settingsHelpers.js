@@ -1,9 +1,10 @@
 const widthInp = document.getElementById("canvas-width-inpt");
 const heightInp = document.getElementById("canvas-height-inpt");
 
-function togglePopup() {
-  document.getElementById("settings-popup").classList.toggle("active");
+function togglePopup(popupId) {
+  document.getElementById(popupId).classList.toggle("active");
 }
+
 
 function displayCurrentWidth() {
   widthInp.value = canvas.width;
