@@ -5,6 +5,8 @@ import { calculateRadius } from "../utils.js";
 export default class MyCanvas {
     constructor(canvasId) {
         this.canvas = document.getElementById(canvasId);
+        this.canvas.width = 0.8 * window.innerWidth;
+        this.canvas.height = 0.8 * window.innerHeight;
         this.context = canvas.getContext("2d");
     }
 
