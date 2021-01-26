@@ -11,13 +11,12 @@
     ></script>
     <script type="module" src="./js/app.js" defer></script>
     <script src="./js/settingsHelpers.js" defer></script>
-    <script src="./js/uiHelpers.js" defer></script>
   </head>
 
   <body>
     <canvas id="canvas" width="1200" height="800"></canvas>
     <div class="toolbox">
-      <button id="pencil-btn" title="Pencil" class="item" data-tool="pencil">
+      <button id="pencil-btn" title="Pencil" class="item selected" data-tool="pencil">
         <i class="fas fa-pencil-alt fa-tool-icon"></i>
       </button>
       <button id="paint-bucket-btn" title="Paint Bucket" class="item" data-tool="paint-bucket">
@@ -31,7 +30,7 @@
       <button id="eraser-btn" title="Eraser" class="item" data-tool="eraser">
         <i class="fas fa-eraser fa-tool-icon"></i>
       </button>
-      <button id="line-btn" title="Line" class="item selected" data-tool="line">
+      <button id="line-btn" title="Line" class="item" data-tool="line">
         <i class="fas fa-slash fa-tool-icon"></i>
       </button>
       <button id="rectangle-btn" title="Square" class="item" data-tool="rectangle">
@@ -43,19 +42,20 @@
       <button id="triangle-btn" title="Triangle" class="item" data-tool="triangle">
         <i class="fas fa-caret-up fa-2x fa-tool-icon"></i>
       </button>
-      <button id="settings-btn" title="Settings" class="item">
+      <button id="settings-btn" title="Settings" class="item" onclick="togglePopup('settings-popup')">
         <i class="fas fa-cog fa-tool-icon"></i>
       </button>
-      <button id="download-btn" title="Download" class="item">
+      <button id="download-btn" title="Download" class="item" onclick="">
         <i class="fas fa-download fa-tool-icon"></i>
       </button>
     </div>
 
     <!-- MODALS  START-->
+    <!-- Settings Modal-->
     <div class="popup" id="settings-popup">
       <div class="overlay"></div>
       <div class="content">
-        <div class="close-btn" onclick="togglePopup()">&times;</div>
+        <div class="close-btn" onclick="togglePopup('settings-popup')">&times;</div>
         <h1>SETTINGS</h1>
         <hr />
         <div class="settings-list">
@@ -67,6 +67,18 @@
             <label for="canvas-height">Height</label>
             <input type="number" id="canvas-height-inpt" />
           </div>
+        </div>
+      </div>
+    </div>
+    <!--Download Image Modal-->
+    <div class="popup" id="download-popup">
+      <div class="overlay"></div>
+      <div class="content">
+        <div class="close-btn" onclick="togglePopup('download-popup')">&times;</div>
+        <h1>DOWNLOAD IMAGE</h1>
+        <hr />
+        <div>
+          <a id="img-download-link">CLICK HERE TO DOWNLOAD</a>
         </div>
       </div>
     </div>
